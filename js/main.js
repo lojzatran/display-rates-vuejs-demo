@@ -1,5 +1,4 @@
 requirejs(
-    // configuration
     {
         paths: {
             // the Vue lib
@@ -7,11 +6,16 @@ requirejs(
             // Vue RequireJS loader
             'vue': 'https://unpkg.com/requirejs-vue@1.1.5/requirejs-vue'
         }
-    }, ['Vue', 'components/display-rate'], (Vue, DisplayRate) => {
-        new Vue({
+    },
+    ['Vue', 'components/display-rate'], (Vue, DisplayRate) => {
+        window.vue = new Vue({
             el: '#app',
             components: {
                 DisplayRate
+            },
+            data: {
+                currencyBase: 'EUR',
+                currencyExchange: 'CZK'
             }
         });
-    })
+    });

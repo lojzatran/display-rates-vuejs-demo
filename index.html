@@ -8,7 +8,11 @@
     </head>
     <body>
         <div id="app">
-            <display-rate currency="CZK"></display-rate>
+            Base: <input v-model="currencyBase" type="text">
+            Exchange: <input v-model="currencyExchange" type="text">
+
+            <display-rate v-bind:currency-base="currencyBase" v-bind:currency-exchange="currencyExchange">
+            </display-rate>
         </div>
     </body>
 </html>
