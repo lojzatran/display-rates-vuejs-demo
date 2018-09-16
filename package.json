@@ -1,0 +1,11 @@
+{
+  "name": "display-rates",
+  "version": "1.0.0",
+  "description": "Convert rates using exchangeratesapi",
+  "scripts": {
+    "start": "harp server --port $PORT"
+  },
+  "dependencies": {
+    "harp": "*"
+  }
+}
