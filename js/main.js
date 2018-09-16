@@ -14,6 +14,7 @@ requirejs(
                 DisplayRate
             },
             data: {
+                amount: 1,
                 currencyBase: 'EUR',
                 currencyExchange: 'CZK'
             }

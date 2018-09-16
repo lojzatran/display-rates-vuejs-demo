@@ -7,6 +7,10 @@ define(['Vue'], () => {
         </div>
         `,
         props: {
+            amount: {
+                type: Number,
+                require: true
+            },
             currencyBase: {
                 type: String,
                 require: true
@@ -22,14 +26,12 @@ define(['Vue'], () => {
             }
         },
         methods: {
-            getCurrencyRate() {
-                fetch(`https://api.exchangeratesapi.io/latest?base=${this.currencyBase}&symbols=${this.currencyExchange}`)
-                    .then((response) => {
-                        return response.json();
-                    })
-                    .then((result) => {
-                        this.rate = result.rates.CZK;
-                    })
+            async getCurrencyRate() {
+                const response = await fetch(
+                    `https://api.exchangeratesapi.io/latest?base=${this.currencyBase}&symbols=${this.currencyExchange}`
+                );
+                const result = await response.json();
+                this.rate = this.amount * result.rates.CZK;
             }
         }
     }

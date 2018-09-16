@@ -10,14 +10,14 @@
         <div id="app" class="container">
             <h1>Exchange rate demo</h1>
             <div class="input-group mb-3">
-                <label>Base:</label><input v-model="currencyBase" type="text" class="form-control">
+                <label>Convert:</label><input v-model="amount" type="text" class="form-control">
+                <label>From:</label><input v-model="currencyBase" type="text" class="form-control">
+                <label>To:</label> <input v-model="currencyExchange" type="text" class="form-control">
             </div>
 
-            <div class="input-group mb-3">
-                <label>Exchange:</label> <input v-model="currencyExchange" type="text" class="form-control">
-            </div>
-
-            <display-rate v-bind:currency-base="currencyBase" v-bind:currency-exchange="currencyExchange">
+            <display-rate v-bind:currency-base="currencyBase"
+                          v-bind:currency-exchange="currencyExchange"
+                          v-bind:amount="amount">
             </display-rate>
         </div>
     </body>
