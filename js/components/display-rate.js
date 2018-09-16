@@ -1,4 +1,4 @@
-define(['Vue'], () => {
+define([], () => {
     return {
         template: `
         <div>
@@ -31,7 +31,7 @@ define(['Vue'], () => {
                     `https://api.exchangeratesapi.io/latest?base=${this.currencyBase}&symbols=${this.currencyExchange}`
                 );
                 const result = await response.json();
-                this.rate = this.amount * result.rates.CZK;
+                this.rate = this.amount * result.rates[this.currencyExchange];
             }
         }
     }
